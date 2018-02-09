@@ -1,13 +1,14 @@
-import { AddList } from './addList/addList';
+
 import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Nav } from 'ionic-angular';
+import { AddList } from '../addList/addList';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'floatMenu',
+  templateUrl: 'floatMenu.html'
 })
-export class HomePage {
+export class FloatMenu {
   @ViewChild(Nav) nav: Nav;
 
   pages: Array<{title: string, component: any}>;

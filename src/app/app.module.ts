@@ -1,3 +1,4 @@
+import { FloatMenu } from './../pages/home/floatMenu/floatMenu';
 import { AddList } from './../pages/home/addList/addList';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -25,7 +26,8 @@ import { shopingLists } from '../pages/home/shopingLists/shopingLists';
     Page3Page,
     Page2Page,
     shopingLists,
-    AddList
+    AddList,
+    FloatMenu
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ import { shopingLists } from '../pages/home/shopingLists/shopingLists';
     Page2Page,
     TabsPage,
     shopingLists,
-    AddList
+    AddList,
+    FloatMenu
   ],
   providers: [
     StatusBar,
