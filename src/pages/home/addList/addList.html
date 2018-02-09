@@ -1,0 +1,73 @@
+<ion-header>
+        <ion-navbar>
+          <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+          <ion-title>List: #1</ion-title>
+              <ion-avatar class='avatar' item-start>
+                <img src="https://raw.githubusercontent.com/Infernus101/ProfileUI/0690f5e61a9f7af02c30342d4d6414a630de47fc/icon.png">
+              </ion-avatar>
+        </ion-navbar>
+      </ion-header>
+
+<ion-content padding>
+        <ion-list>
+                
+                  <ion-item class="product">
+                    <ion-label stacked>Product Name</ion-label>
+                    <ion-input #product type="text"></ion-input>
+                  </ion-item>
+                
+                  <ion-item  class="amount">
+                    <ion-label stacked>Amount</ion-label>
+                    <ion-input #amount type="number"></ion-input>
+                  </ion-item>
+                </ion-list>
+                <ion-list  radio-group>
+                <ion-item  class="kg">
+                        <ion-label>g.</ion-label>
+                        <ion-radio #size    checked="true" value="go"></ion-radio>
+                      </ion-item>
+                    
+                      <ion-item  class="quintity">
+                        <ion-label>qunttity</ion-label>
+                        <ion-radio  value="rust"></ion-radio>
+                      </ion-item>
+                    </ion-list>
+              <button >    <ion-icon  (click)="addProduct(product,amount,size)" class='btn' ios="ios-add-circle"  md="md-add-circle"></ion-icon></button>  
+             
+
+        <ion-list *ngFor="let p of productList ">
+                
+
+
+                  <ion-list>
+                        <ion-item-sliding>
+                          <ion-item>
+                            <ion-avatar item-start>
+                              <img src="https://raw.githubusercontent.com/Infernus101/ProfileUI/0690f5e61a9f7af02c30342d4d6414a630de47fc/icon.png">
+                            </ion-avatar>
+                            <h2>{{p.product}} </h2>
+                            <h4>{{p.amount}} {{p.size}}</h4>
+                          </ion-item>
+                          <ion-item-options side="left">
+                            <button ion-button color="primary">
+                              <ion-icon name="text"></ion-icon>
+                              Text
+                            </button>
+                            <button ion-button color="secondary">
+                              <ion-icon name="call"></ion-icon>
+                              Call
+                            </button>
+                          </ion-item-options>
+                          <ion-item-options side="right">
+                            <button ion-button color="primary">
+                              <ion-icon name="mail"></ion-icon>
+                              Email
+                            </button>
+                          </ion-item-options>
+                        </ion-item-sliding>
+                      </ion-list>
+        </ion-list>
+
+</ion-content>
