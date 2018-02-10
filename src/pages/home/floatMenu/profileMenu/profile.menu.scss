@@ -1,3 +1,22 @@
 .profileBTN{
     background:  url(https://raw.githubusercontent.com/Infernus101/ProfileUI/0690f5e61a9f7af02c30342d4d6414a630de47fc/icon.png)  10px 10px no-repeat;
 }
+
+.btnProfile{
+    background: transparent;
+    height: 50px;
+    width: 50px;
+    margin-top: 3px;
+    
+}
+
+.imgProfile{
+    position: absolute;
+    top: 1px;
+}
+
+.menuContainer {
+    position: absolute;
+    top: -12px;
+    right: 0;
+}
