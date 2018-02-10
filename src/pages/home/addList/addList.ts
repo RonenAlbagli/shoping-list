@@ -1,24 +1,31 @@
+import { ProductService } from './productService';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Product } from './../../models/productModel' 
+import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
   selector: 'addList',
   templateUrl: 'addList.html'
 })
-export class AddList {
+export class AddList implements OnInit {
 
     productList: any= [];
     amountSize1: boolean = true;
-    // amountSize2:  boolean = false;
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private productService: ProductService) {
 
   }
 
+  ngOnInit(){
+      this.getListProduts();
+      console.log(this.productList)
+  }
+
   addProduct(product,amount, size){
-    let existProduct =  this.productList.find(p => p.product === product.value);
+    let existProduct =  this.productService.productList.find(p => p.productName === product.value);
     if(existProduct){
-       //set the nre value for exist product
-        existProduct.product = 'test';
+    //set the nre value for exist product
+        existProduct.productName = 'test';
     } else {
         let sizeAmount:string;
         if(size.checked){
@@ -27,23 +34,33 @@ export class AddList {
             sizeAmount = 'unit';
         }
 
-      this.productList.push({product:product.value ,amount:amount.value, size:sizeAmount});
+        let NewProduct = new Product(product.value ,amount.value,sizeAmount, true);
+        this.productService.addProductToList(NewProduct);
+        // .subscribe((data)=>{
+        //     console.log('product was added');
+        //     product.setValue('');
+        //     amount.setValue('');
+        //     this.amountSize1 = true;
+        // })\
+        this.getListProduts();
     }
-      product.setValue('');
-        amount.setValue('');
-        this.amountSize1 = true;
+
+
+
 
   }
+  getListProduts(){
+    this.productList = this.productService.getProducts();
+ }
 
   changeRadioStatus(status){
-      
     this.amountSize1 =status;
   }
 
   handleUserUpdated(productEdit ,product,amount,size){
-      console.log(productEdit);
-    product.setValue(productEdit.product);
-    amount.setValue(productEdit.amount);
+
+    product.setValue(productEdit.productName);
+    amount.setValue(productEdit.productAmount);
 
     if(size === 'g.'){
         this.amountSize1 = true;

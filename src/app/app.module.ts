@@ -1,3 +1,4 @@
+import { ProductService } from './../pages/home/addList/productService';
 import { FloatMenu } from './../pages/home/floatMenu/floatMenu';
 import { AddList } from './../pages/home/addList/addList';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,6 +17,8 @@ import { Page3Page } from '../pages/page3/page3';
 import { Page2Page } from '../pages/page2/page2';
 import { shopingLists } from '../pages/home/shopingLists/shopingLists';
 import { ProductList } from '../pages/home/addList/productList/productList';
+import { HttpModule } from '@angular/http';
+import { ProfileMenu } from '../pages/home/floatMenu/profileMenu/profile.menu';
 
 
 @NgModule({
@@ -29,10 +32,12 @@ import { ProductList } from '../pages/home/addList/productList/productList';
     shopingLists,
     AddList,
     FloatMenu,
+    ProfileMenu,
     ProductList
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -46,12 +51,14 @@ import { ProductList } from '../pages/home/addList/productList/productList';
     shopingLists,
     AddList,
     FloatMenu,
+    ProfileMenu,
     ProductList
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    ProductService,
+    {provide: ErrorHandler, useClass: IonicErrorHandler, }
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
