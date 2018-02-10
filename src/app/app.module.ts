@@ -15,6 +15,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { Page3Page } from '../pages/page3/page3';
 import { Page2Page } from '../pages/page2/page2';
 import { shopingLists } from '../pages/home/shopingLists/shopingLists';
+import { ProductList } from '../pages/home/addList/productList/productList';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { shopingLists } from '../pages/home/shopingLists/shopingLists';
     Page2Page,
     shopingLists,
     AddList,
-    FloatMenu
+    FloatMenu,
+    ProductList
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { shopingLists } from '../pages/home/shopingLists/shopingLists';
     TabsPage,
     shopingLists,
     AddList,
-    FloatMenu
+    FloatMenu,
+    ProductList
   ],
   providers: [
     StatusBar,
